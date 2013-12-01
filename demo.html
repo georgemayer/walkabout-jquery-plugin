@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+        <link rel="stylesheet" href="walkabout.css">
+        <script src="jquery-1.10.2.min.js"></script>
+        <script src="walkabout.js"></script>
+        <style>
+            div {
+                height: 300px;
+                width:100%;
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                $(document).walkabout({
+                    autostart: true
+                });
+            });
+        
+        </script>
+    </head>
+    <body>
+        <div
+            data-tut-step="1"
+            data-tut-content="Hello world!"
+        >Step one</div>
+        <div
+            data-tut-step="2"
+            data-tut-content="Hello world!"
+        >Step two</div>
+        <div
+            data-tut-step="3"
+            data-tut-content="Hello world!"
+        >Step three</div>
+        <div
+            style="float:right; width: 50px; background: red;" 
+            data-tut-step="4"
+            data-tut-content="I'm on the right"
+        >Step four</div>
+        <div
+            data-tut-step="5"
+            data-tut-content="I'm on the bottom"
+        >Step five</div>
+    
+    
+    </body>    
+</html>

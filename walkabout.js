@@ -1,4 +1,4 @@
-*/
+/*
 the tutorial object displays a tutorial that allows users to walk through the site. It looks for all "data-tut-step"s on the page and creates a tutorial out of them. 
 */
 
@@ -61,26 +61,19 @@ the tutorial object displays a tutorial that allows users to walk through the si
                     });
                     newDiv.append(prevButton);
                 }   
-                // position the hint
-                /*
-                pos = calcPosition(step);
-                console.log(pos);
-                newDiv.css({
-                    "position":"absolute",
-                    "top": pos.top,
-                    "left":pos.left
-                });
-               
-                $("body").append(newDiv);
-                 */
                 
+                // position the hint
                 pos = step.offset(); 
-                fullHeight = $(document).height();
+                wHeight = $(document).height();
+                wWidth = $(window).width();
                 hintHeight = newDiv.height();
+                hintWidth = newDiv.width();
+                fromBottom = wHeight - pos.top;
+                // fromRight = 
                 // move the hint over to the appropriate position on the screen
                 newDiv.css("left",pos.left);
-                fromBottom = fullHeight - pos.top;
-                console.log(fullHeight);
+        
+
                 
                 if(fromBottom < hintHeight) {
                     bottomOffset = fromBottom + step.height();
