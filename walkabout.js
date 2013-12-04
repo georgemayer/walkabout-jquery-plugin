@@ -42,6 +42,13 @@
                 para = $("<p>");
                 para.text(content);
                 newDiv.append(para);
+                closeHint = $("<div>");
+                closeHint.text("x");
+                closeHint.click(function(){
+                    tutorial.closeStep();
+                });
+                closeHint.addClass('close');
+                newDiv.append(closeHint);
                 
                 // create the next button
                 // check if the current step is the last step
@@ -75,10 +82,21 @@
                 hintHeight = newDiv.height();
                 hintWidth = newDiv.width();
                 fromBottom = wHeight - pos.top;
-     
-                newDiv.css("left",pos.left);
+                fromRight = wWidth - pos.left;
+                console.log(fromRight);
+                //newDiv.css("left",pos.left);
         
-
+                if(fromRight < hintWidth) {
+                    newDiv.addClass("from-right");
+                    if(newDiv.hasClass("from-left")) newDiv.removeClass("from-left");
+                    newDiv.css("left",pos.left - newDiv.width());
+                } else {
+                    newDiv.css("left",pos.left);
+                    newDiv.addClass("from-left");
+                    if(newDiv.hasClass("from-right")) newDiv.removeClass("from-right");
+                    newDiv.css("left",pos.left);
+                }     
+                
                 // if the step is at the bottom of the screen, put the hint above it
                 if(fromBottom < hintHeight) {
                     bottomOffset = fromBottom + step.height();
@@ -136,7 +154,7 @@
             destination = el.offset().top;
             $('html, body').animate({
                 scrollTop: destination
-            }, 2000);        
+            }, 1000);        
         };
         
 
