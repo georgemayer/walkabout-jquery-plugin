@@ -1,37 +1,39 @@
 .hint {
     position: absolute;
     width: 320px;
-    background: white;
-    border: 1px solid #29ABE2;
-    height: auto; 
-    padding:5px;
+    background: rgba(255,255,255,.93);
+    box-shadow: 0px 0px 2px rgba(0,0,0,.4);
+    height: auto;  
     padding-bottom:30px;
     z-index:2;
     margin: 20px;
+    margin-top: 0px;
+    line-height: 20px;
+    cursor: move;
+} 
+
+.hint.from-bottom:after,
+.hint.from-top:after
+{
+    content: "";
+    width: 0; 
+	height: 0; 
+    border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+    position:absolute;
+    left: 10px; 
 }
 
 .hint.from-bottom:after {
-    content: "";
-    width: 0; 
-	height: 0; 
-	border-top: 10px solid #29ABE2;
-    border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-    position:absolute;
+	border-top: 10px solid rgba(255,255,255,1);
     bottom: -10px;
-    left: 10px; 
+    -webkit-filter: drop-shadow(0px 1px 0px rgba(0,0,0,.3));
 }
 
-.hint.from-top:before {
-    content: "";
-    width: 0; 
-	height: 0; 
-	border-bottom: 10px solid #29ABE2;
-    border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-    position:absolute;
+.hint.from-top:after {
+	border-bottom: 10px solid rgba(41,171,226,1);
     top: -10px;
-    left: 10px; 
+    -webkit-filter: drop-shadow(0px -1px 0px rgba(0,0,0,.3));
 }
 
 .hint.from-bottom.from-right:after {
@@ -39,54 +41,88 @@
     left: auto;
 }
 
-.hint.from-top.from-right:before {
+.hint.from-top.from-right:after {
     right: 10px; 
     left: auto;
 }
 
-.close {
+.hint-title {
+    width: 100%;
+    background:rgba(41,171,226,1);
+    padding: 10px;
+    padding-right: 20px;
+    color: white;
+    min-height: 25px;
+    font-family: "locator", arial, helvetica, sans-serif;
+}
+
+.hint p {
+    text-align: left; 
+    line-height: 1.2em;
+    color: #666;
+    padding: 10px;
+}
+
+.hint .close-hint {
     position: absolute;
-    right: 5px;
-    top: 3px;
+    right: 10px;
+    top: 9px;
     width: auto;
     height: auto;
     font-family: arial;
     cursor: pointer;
+    padding-top: 0px;
+    color: white;
 }
 
-
+.hint .close-hint:hover {
+    color: red;
+}
 
 .hint button {
     height: 30px;
-    width: 50px;
+    width: auto;
+    padding: none;
     box-shadow: none;
     border: none;
-    background: white;
+    background: none;
     color: #666666;
-    border: 1px solid #666666;
+    border: none;
     position: absolute; 
     bottom: 5px; 
-    right: 5px;
     text-shadow: none;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
     line-height: 10px;
+    font-size: .8em;
 }
 
+
 .hint button.next {
-    bottom: 5px; 
     right: 5px;
     top: auto;
 }
 
+.hint button.end-tut {
+    right: 5px;
+    top: auto;
+}
+
+.hint button.next:hover {
+    -webkit-transform: translateX(2px);
+    -webkit-transition: -webkit-transform .25s;
+}
+
+.hint button.prev:hover {
+    -webkit-transform: translateX(-2px);
+    -webkit-transition: -webkit-transform .25s;
+}
+
 .hint button.prev {
-    bottom: 5px; 
     left: 5px;
 }
 
-.hint p {
-    font-size:.8em;
-    text-align: left; 
-    line-height: 1.2em;
-    color: #666;
+.hint button:active {
+    margin: auto;
+    color: #29ABE2;
 }
