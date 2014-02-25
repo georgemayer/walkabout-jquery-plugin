@@ -6,7 +6,7 @@ The steps are ordered by the data-tut-step attribute and the content of each ste
 
 Here's a basic call: 
 
-```jquery
+```javascript
 $(document).ready(function() {
     $(document).walkabout({
         autostart: true
